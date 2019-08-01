@@ -4,15 +4,19 @@
 # dois valores separados em colunas diferentes
 
 origem = open('arquivo.csv', 'r')
-destino = open('destino.csv', 'a')
+destino = open('destino.csv', 'w')
 
 linhas = list(origem)
-cabecalho = linhas[0].strip() + ";Coluna2\n"
-destino.write(cabecalho)
+cabecalho = linhas[0].strip()
+colunas_cabecalho = cabecalho.split(';')
+del colunas_cabecalho[3]
+colunas_cabecalho.append("Coluna Extra")
+destino.write( ";".join(colunas_cabecalho).strip() + "\n" )
 
 for linha in linhas[1:]:
     colunas = linha.split(';')
     ultima_coluna = colunas[-1]
+    del colunas[3]
     del colunas[-1]
 
     valores = ultima_coluna.split(',')
