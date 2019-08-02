@@ -2,6 +2,8 @@
 # possui dois números separados por vírgula
 # O desafio é fazer um script que gera outro csv com os 
 # dois valores separados em colunas diferentes
+# Além disso, o conteúdo da coluna "Subsistema" é igual em todas as linhas
+# por isto, o arquivo de saída não deve conter esta coluna
 
 origem = open('arquivo.csv', 'r')
 destino = open('destino.csv', 'w')
